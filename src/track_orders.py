@@ -23,10 +23,21 @@ class TrackOrders:
                     dish = x[1]
         return dish
 
-        pass
-
     def get_never_ordered_per_costumer(self, costumer):
-        pass
+        my_dict = dict()
+        my_dishes = dict()
+        for x in self.orders:
+            if x[1] not in my_dishes:
+                my_dishes[x[1]] = True
+            if x[0] == costumer:
+                if x[1] not in self.orders:
+                    my_dict[x[1]] = 1
+                else:
+                    my_dict[x[1]] += 1
+        my_dict_set = set(my_dict)
+        my_dishes_set = set(my_dishes)
+        diff = my_dishes_set.difference(my_dict_set)
+        return diff
 
     def get_days_never_visited_per_costumer(self, costumer):
         pass
