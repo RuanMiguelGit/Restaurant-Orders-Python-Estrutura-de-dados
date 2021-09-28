@@ -40,7 +40,20 @@ class TrackOrders:
         return diff
 
     def get_days_never_visited_per_costumer(self, costumer):
-        pass
+        my_dict = dict()
+        my_dishes = dict()
+        for x in self.orders:
+            if x[2] not in my_dishes:
+                my_dishes[x[2]] = True
+            if x[0] == costumer:
+                if x[2] not in self.orders:
+                    my_dict[x[2]] = 1
+                else:
+                    my_dict[x[2]] += 1
+        my_dict_set = set(my_dict)
+        my_dishes_set = set(my_dishes)
+        diff = my_dishes_set.difference(my_dict_set)
+        return diff
 
     def get_busiest_day(self):
         pass
