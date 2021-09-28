@@ -8,6 +8,7 @@ def print_info(tracker, control):
     print(tracker.get_most_ordered_dish_per_costumer("maria"))
     print(tracker.get_never_ordered_per_costumer("joao"))
     print(tracker.get_days_never_visited_per_costumer("joao"))
+    print(tracker.get_busiest_day())
     print(control.get_quantities_to_buy())
 
 
