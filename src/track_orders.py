@@ -67,7 +67,15 @@ class TrackOrders:
                 value = my_dict[x[2]]
                 max = x[2]
         return max
-        pass
 
     def get_least_busy_day(self):
-        pass
+        my_dict = dict()
+        value = 1000
+        for x in self.orders:
+            if x[2] not in my_dict:
+                my_dict[x[2]] = 1
+            else:
+                my_dict[x[2]] += 1
+            if my_dict[x[2]] <= value:
+                value = my_dict[x[2]]
+        return x[2]
